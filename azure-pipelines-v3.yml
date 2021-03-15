@@ -21,7 +21,7 @@ jobs:
 # Test and deploy on windows
 - job: WindowsBuild
   pool:
-    name: 1ES-Pool
+    vmImage: 'windows-latest'
   steps:
 
   # Install .NET Core sdk
@@ -75,7 +75,7 @@ jobs:
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/v3-release'))
   dependsOn: WindowsBuild
   pool:
-    name: DocFX
+    name: 1ES-Pool
   strategy:
     matrix:
       azure-docs-pr:
