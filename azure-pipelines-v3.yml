@@ -75,7 +75,7 @@ jobs:
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/v3-release'))
   dependsOn: WindowsBuild
   pool:
-    name: 1ES-Pool
+    name: Docfx-1ES
   strategy:
     matrix:
       azure-docs-pr:
