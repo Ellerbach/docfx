@@ -159,7 +159,9 @@ jobs:
       scriptType: ps
       scriptLocation: inlineScript
       powerShellErrorActionPreference: continue
-      inlineScript: $(Pipeline.Workspace)/RegressionTest/docfx.RegressionTest.exe $(params)
+      inlineScript: |
+        New-Item -Path 'D:\docfx.TestData\.temp\' -ItemType Directory
+        $(Pipeline.Workspace)/RegressionTest/docfx.RegressionTest.exe $(params)
     env:
       BUILD_REASON: $(Build.Reason)
       DOCFX_APPDATA_PATH: D:/appdata
