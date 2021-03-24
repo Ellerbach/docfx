@@ -161,6 +161,10 @@ jobs:
       powerShellErrorActionPreference: continue
       inlineScript: |
         New-Item -Path 'D:\docfx.TestData\.temp\' -ItemType Directory
+        New-Item -Path 'D:/docfx.TestData/regression-test.windows-compatibility/windows-compatibility' -ItemType Directory
+        New-Item -Path 'D:/docfx.TestData/regression-test.microsoft-graph-docs/microsoft-graph-docs' -ItemType Directory
+        New-Item -Path 'D:/docfx.TestData/regression-test.AspNetCore.Docs/AspNetCore.Docs' -ItemType Directory
+        New-Item -Path 'D:/docfx.TestData\regression-test.docs\docs' -ItemType Directory
         $(Pipeline.Workspace)/RegressionTest/docfx.RegressionTest.exe $(params)
     env:
       BUILD_REASON: $(Build.Reason)
